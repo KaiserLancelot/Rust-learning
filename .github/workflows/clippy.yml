@@ -21,13 +21,15 @@ jobs:
         if: ${{ matrix.build_type == 'Debug' }}
         uses: actions-rs/clippy-check@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           args: --workspace --locked --all-targets
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Clippy result
 
       # https://github.com/actions-rs/clippy-check
       - name: Clippy check in release mode
         if: ${{ matrix.build_type == 'Release' }}
         uses: actions-rs/clippy-check@v1
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           args: --workspace --locked --all-targets --release
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Clippy result

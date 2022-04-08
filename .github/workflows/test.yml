@@ -1,4 +1,4 @@
-name: Build
+name: Test
 
 on: [push, pull_request]
 
@@ -16,10 +16,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Build
+      - name: Test
         if: ${{ matrix.build_type == 'Debug' }}
-        run: cargo build --workspace --locked --all-targets
+        run: cargo test --workspace --locked --all-targets
 
-      - name: Build in release mode
+      - name: Test in release mode
         if: ${{ matrix.build_type == 'Release' }}
-        run: cargo build --workspace --locked --all-targets --release
+        run: cargo test --workspace --locked --all-targets --release
