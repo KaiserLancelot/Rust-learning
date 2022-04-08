@@ -1,4 +1,4 @@
-name: Clippy check
+name: Clippy
 
 on: [push, pull_request]
 
@@ -17,19 +17,16 @@ jobs:
         uses: actions/checkout@v3
 
       # https://github.com/actions-rs/clippy-check
-      - name: Clippy check
+      - name: Clippy
         if: ${{ matrix.build_type == 'Debug' }}
         uses: actions-rs/clippy-check@v1
         with:
           args: --workspace --locked --all-targets
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: Clippy result
 
-      # https://github.com/actions-rs/clippy-check
-      - name: Clippy check in release mode
+      - name: Clippy in release mode
         if: ${{ matrix.build_type == 'Release' }}
         uses: actions-rs/clippy-check@v1
         with:
           args: --workspace --locked --all-targets --release
           token: ${{ secrets.GITHUB_TOKEN }}
-          name: Clippy result
