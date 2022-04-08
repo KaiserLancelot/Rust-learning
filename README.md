@@ -11,7 +11,3 @@ Rust learning notes
 ## Reference
 
 - [trpl-zh-cn](https://github.com/KaiserY/trpl-zh-cn)
-
-## Build environment
-
-- [kenv](https://github.com/KaiserLancelot/kenv)

@@ -1,0 +1,15 @@
+name: Outdated
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Outdated
+        run: cargo outdated --workspace --exit-code 1

@@ -18,8 +18,8 @@ jobs:
 
       - name: Build
         if: ${{ matrix.build_type == 'Debug' }}
-        run: cargo build --verbose
+        run: cargo build --workspace --locked --all-targets
 
       - name: Build in release mode
         if: ${{ matrix.build_type == 'Release' }}
-        run: cargo build --verbose --release
+        run: cargo build --workspace --locked --all-targets --release
