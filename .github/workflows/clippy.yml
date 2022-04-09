@@ -18,8 +18,8 @@ jobs:
 
       - name: Clippy
         if: ${{ matrix.build_type == 'Debug' }}
-        run: cargo clippy --workspace --locked --all-targets
+        run: cargo clippy --workspace --locked --all-targets -- --deny clippy::all
 
       - name: Clippy in release mode
         if: ${{ matrix.build_type == 'Release' }}
-        run: cargo clippy --workspace --locked --all-targets --release
+        run: cargo clippy --workspace --locked --all-targets --release -- --deny clippy::all
