@@ -32,7 +32,7 @@ jobs:
           ./grcov . --binary-path ./target/debug/ -s . -t lcov --branch --ignore-not-existing --ignore "/*" -o lcov.info
 
       # https://github.com/codecov/codecov-action#usage
-      - name: Codecov
+      - name: Upload to codecov
         uses: codecov/codecov-action@v3
         with:
           files: lcov.info
