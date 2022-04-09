@@ -13,6 +13,9 @@ on:
     # At the end of every day
     - cron: "0 0 * * *"
 
+env:
+  RUSTFLAGS: "-D warnings -C target-feature=+aes -C target-cpu=haswell"
+
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -2,6 +2,9 @@ name: Outdated
 
 on: [push, pull_request]
 
+env:
+  RUSTFLAGS: "-D warnings -C target-feature=+aes -C target-cpu=haswell"
+
 jobs:
   build:
     runs-on: ubuntu-latest
