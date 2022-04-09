@@ -1,3 +1,8 @@
 [workspace]
-
 members = ["chapter*"]
+
+[profile.release]
+# https://doc.rust-lang.org/cargo/reference/profiles.html#lto
+lto = true
+# https://doc.rust-lang.org/cargo/reference/profiles.html#strip
+strip = true
