@@ -1,6 +1,12 @@
 name: Rustfmt
 
-on: [push, pull_request]
+on:
+  push:
+    paths-ignore:
+      - "**.md"
+  pull_request:
+    paths-ignore:
+      - "**.md"
 
 env:
   RUSTFLAGS: "-D warnings -C target-feature=+aes -C target-cpu=haswell"
