@@ -33,7 +33,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --workspace --locked --all-targets --release --verbose
+          args: --workspace --locked --all-targets --release
 
       # https://github.com/actions/upload-artifact
       - name: Upload artifact
@@ -43,7 +43,7 @@ jobs:
           name: ${{ matrix.os }}-target
           path: |
             target/release/chapter[0-9][0-9]
-            http
+            target/release/http
           if-no-files-found: error
 
       - name: Upload artifact
@@ -53,5 +53,5 @@ jobs:
           name: ${{ matrix.os }}-target
           path: |
             target/release/chapter[0-9][0-9].exe
-            http.exe
+            target/release/http.exe
           if-no-files-found: error
