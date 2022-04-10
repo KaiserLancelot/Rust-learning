@@ -1,6 +1,10 @@
+# 一个 section
 [package]
 name = "chapter02"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+# 是 ^0.8.5 的简写, 它表示任何至少是 0.8.5 但小于 0.9.0 的版本
+# 使用 cargo update 升级
+rand = "0.8.5"
