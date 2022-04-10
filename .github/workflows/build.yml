@@ -28,7 +28,6 @@ jobs:
           toolchain: stable
           components: clippy
           default: true
-          override: true
 
       # https://github.com/actions-rs/cargo
       - name: Run cargo clippy

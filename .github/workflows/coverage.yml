@@ -27,7 +27,6 @@ jobs:
           toolchain: nightly
           components: llvm-tools-preview
           default: true
-          override: true
 
       # https://github.com/actions-rs/cargo
       - name: Run cargo test
