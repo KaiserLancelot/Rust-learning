@@ -1,4 +1,4 @@
-name: Build
+name: Upload
 
 on:
   push:
@@ -26,19 +26,19 @@ jobs:
         uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-          components: clippy
           default: true
 
       # https://github.com/actions-rs/cargo
-      - name: Run cargo clippy
+      - name: Run cargo build
         uses: actions-rs/cargo@v1
         with:
-          command: clippy
-          args: --workspace --locked --all-targets -- --deny clippy::all
+          command: build
+          args: --release --verbose
 
-      # https://github.com/actions-rs/cargo
-      - name: Run cargo test
-        uses: actions-rs/cargo@v1
+      # https://github.com/actions/upload-artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
-          command: test
-          args: --workspace --locked --all-targets
+          name: ${{ matrix.os }}-target
+          path: target
+          if-no-files-found: error
