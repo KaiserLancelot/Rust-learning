@@ -42,3 +42,11 @@ jobs:
         with:
           command: test
           args: --workspace --locked --all-targets
+
+      # https://github.com/actions/upload-artifact
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ matrix.os }}-target
+          path: target
+          if-no-files-found: error
