@@ -21,16 +21,6 @@ rustflags = [
     "target-cpu=haswell",
 ]
 
-[target.x86_64-apple-darwin]
-rustflags = [
-    "-D",
-    "warnings",
-    "-C",
-    "target-feature=+crt-static,+aes",
-    "-C",
-    "target-cpu=haswell",
-]
-
 [target.x86_64-pc-windows-msvc]
 rustflags = [
     "-D",
