@@ -40,5 +40,5 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.os }}-target
-          path: target
+          path: target/release/chapter[0-9][0-9]
           if-no-files-found: error
