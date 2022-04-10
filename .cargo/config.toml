@@ -1,0 +1,42 @@
+# https://doc.rust-lang.org/cargo/reference/config.html
+
+[profile.release]
+# https://doc.rust-lang.org/cargo/reference/profiles.html#strip
+strip = true
+# https://doc.rust-lang.org/cargo/reference/profiles.html#lto
+lto = true
+# https://doc.rust-lang.org/cargo/reference/profiles.html#codegen-units
+codegen-units = 1
+
+# https://doc.rust-lang.org/rustc/platform-support.html
+# https://doc.rust-lang.org/reference/linkage.html#static-and-dynamic-c-runtimes
+# https://rust-lang.github.io/packed_simd/perf-guide/target-feature/rustflags.html
+[target.x86_64-unknown-linux-gnu]
+rustflags = [
+    "-D",
+    "warnings",
+    "-C",
+    "target-feature=+aes",
+    "-C",
+    "target-cpu=haswell",
+]
+
+[target.x86_64-apple-darwin]
+rustflags = [
+    "-D",
+    "warnings",
+    "-C",
+    "target-feature=+crt-static,+aes",
+    "-C",
+    "target-cpu=haswell",
+]
+
+[target.x86_64-pc-windows-msvc]
+rustflags = [
+    "-D",
+    "warnings",
+    "-C",
+    "target-feature=+crt-static,+aes",
+    "-C",
+    "target-cpu=haswell",
+]

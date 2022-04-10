@@ -8,14 +8,10 @@ on:
     paths-ignore:
       - "**.md"
 
-env:
-  RUSTFLAGS: "-D warnings -C target-feature=+aes -C target-cpu=haswell"
-
 jobs:
   build:
     strategy:
       matrix:
-        build_type: ["Debug", "Release"]
         os: [ubuntu-latest, macos-latest, windows-latest]
 
     runs-on: ${{ matrix.os }}
@@ -25,10 +21,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Test
-        if: ${{ matrix.build_type == 'Debug' }}
-        run: cargo test --workspace --locked --all-targets
+      # https://github.com/actions-rs/toolchain
+      - name: Install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          components: clippy
+          override: true
 
-      - name: Test in release mode
-        if: ${{ matrix.build_type == 'Release' }}
-        run: cargo test --workspace --locked --all-targets --release
+      - name: Run cargo clippy
+        uses: actions-rs/cargo@v1
+        with:
+          command: clippy
+          args: --workspace --locked --all-targets -- --deny clippy::all
+
+      - name: Run cargo test
+        uses: actions-rs/cargo@v1
+        with:
+          command: test
+          args: --workspace --locked --all-targets
