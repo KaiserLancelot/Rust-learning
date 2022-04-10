@@ -33,7 +33,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --release --verbose
+          args: --workspace --locked --all-targets --release --verbose
 
       # https://github.com/actions/upload-artifact
       - name: Upload artifact
