@@ -27,14 +27,17 @@ jobs:
         with:
           toolchain: stable
           components: clippy
+          default: true
           override: true
 
+      # https://github.com/actions-rs/cargo
       - name: Run cargo clippy
         uses: actions-rs/cargo@v1
         with:
           command: clippy
           args: --workspace --locked --all-targets -- --deny clippy::all
 
+      # https://github.com/actions-rs/cargo
       - name: Run cargo test
         uses: actions-rs/cargo@v1
         with:

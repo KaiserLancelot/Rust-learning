@@ -17,6 +17,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      # https://github.com/actions-rs/toolchain
+      - name: Install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          default: true
+          override: true
+
       # https://github.com/actions-rs/cargo
       # https://github.com/kbknapp/cargo-outdated
       - name: Run cargo outdated

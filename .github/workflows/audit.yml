@@ -22,6 +22,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      # https://github.com/actions-rs/toolchain
+      - name: Install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          default: true
+          override: true
+
       # https://github.com/actions-rs/cargo
       # https://github.com/rustsec/rustsec/tree/main/cargo-audit
       - name: Run cargo audit
