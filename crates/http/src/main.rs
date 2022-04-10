@@ -4,7 +4,7 @@ async fn main() -> Result<(), reqwest::Error> {
         Some(url) => url,
         None => {
             println!("No CLI URL provided, using default.");
-            "https://www.baidu.com/".into()
+            "https://www.google.com/?hl=zh_CN".into()
         }
     };
 
