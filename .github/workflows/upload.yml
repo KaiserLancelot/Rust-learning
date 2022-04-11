@@ -46,7 +46,6 @@ jobs:
             target/release/http
             target/release/zip
             target/release/crypto
-            target/release/image
           if-no-files-found: error
 
       - name: Upload artifact
@@ -59,5 +58,4 @@ jobs:
             target/release/http.exe
             target/release/zip.exe
             target/release/crypto.exe
-            target/release/image.exe
           if-no-files-found: error
