@@ -9,7 +9,7 @@ on:
       - "**.md"
 
 env:
-  RUSTFLAGS: "-C target-feature=+aes -C target-cpu=haswell -C instrument-coverage"
+  RUSTFLAGS: "-D warnings -C target-feature=+aes -C target-cpu=haswell -C instrument-coverage"
 
 jobs:
   build:
@@ -21,10 +21,10 @@ jobs:
         uses: actions/checkout@v3
 
       # https://github.com/actions-rs/toolchain
-      - name: Install nightly toolchain
+      - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly
+          toolchain: stable
           components: llvm-tools-preview
           default: true
 
