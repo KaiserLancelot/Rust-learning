@@ -4,8 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# TODO for or PR, add method option
-webp = "0.2.2"
+# TODO use it
+libwebp-sys = { version = "0.5.0", default-features = false, features = [
+    "parallel",
+    "avx2",
+] }
 image = { version = "0.24.1", default-features = false, features = [
     "jpeg",
     "png",
