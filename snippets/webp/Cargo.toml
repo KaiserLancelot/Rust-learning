@@ -1,0 +1,13 @@
+[package]
+name = "webp"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# TODO for or PR, add method option
+webp = "0.2.2"
+image = { version = "0.24.1", default-features = false, features = [
+    "jpeg",
+    "png",
+    "jpeg_rayon",
+] }
