@@ -1,0 +1,12 @@
+[package]
+name = "sql"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+sea-orm = { version = "0.7.1", features = [
+    "sqlx-sqlite",
+    "runtime-tokio-rustls",
+    "macros",
+] }
+tokio = { version = "1.17.0", default-features = false, features = ["macros"] }
