@@ -1,0 +1,10 @@
+[package]
+name = "xml"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+quick-xml = { version = "0.22.0", default-features = false, features = [
+    "serialize",
+] }
+serde = { version = "1.0.136", default-features = false, features = ["derive"] }

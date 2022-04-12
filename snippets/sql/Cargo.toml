@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-sea-orm = { version = "0.7.1", features = [
+sea-orm = { version = "0.7.1", default-features = false, features = [
     "sqlx-sqlite",
     "runtime-tokio-rustls",
     "macros",
