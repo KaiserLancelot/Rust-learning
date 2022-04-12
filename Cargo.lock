@@ -407,7 +407,7 @@ dependencies = [
  "serde",
  "serde_json",
  "time 0.2.27",
- "url",
+ "url 2.2.2",
 ]
 
 [[package]]
@@ -2059,7 +2059,7 @@ dependencies = [
  "tokio-rustls 0.23.3",
  "tokio-util 0.6.9",
  "trust-dns-resolver",
- "url",
+ "url 2.2.2",
  "wasm-bindgen",
  "wasm-bindgen-futures",
  "web-sys",
@@ -2237,7 +2237,7 @@ dependencies = [
  "sqlx",
  "time 0.2.27",
  "tracing",
- "url",
+ "url 2.2.2",
  "uuid",
 ]
 
@@ -2590,7 +2590,7 @@ dependencies = [
  "thiserror",
  "time 0.2.27",
  "tokio-stream",
- "url",
+ "url 2.2.2",
  "uuid",
  "webpki 0.21.4",
  "webpki-roots 0.21.1",
@@ -2613,7 +2613,7 @@ dependencies = [
  "sqlx-core",
  "sqlx-rt",
  "syn",
- "url",
+ "url 2.2.2",
 ]
 
 [[package]]
@@ -3103,7 +3103,7 @@ dependencies = [
  "thiserror",
  "tinyvec",
  "tokio",
- "url",
+ "url 2.2.2",
 ]
 
 [[package]]
@@ -3215,6 +3215,13 @@ name = "untrusted"
 version = "0.7.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a156c684c91ea7d62626509bce3cb4e1d9ed5c4d978f7b4352658f96a4c26b4a"
+
+[[package]]
+name = "url"
+version = "0.1.0"
+dependencies = [
+ "url 2.2.2",
+]
 
 [[package]]
 name = "url"
