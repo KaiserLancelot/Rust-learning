@@ -22,8 +22,8 @@ fn main() {
     assert_eq!(slice, &[2, 3]);
 }
 
-// TODO &String 应该改为 &str, 第十五章
-fn first_word(s: &String) -> &str {
+// TODO &str, 第十五章
+fn first_word(s: &str) -> &str {
     let bytes = s.as_bytes();
 
     // TODO &item, 第六章
@@ -33,5 +33,5 @@ fn first_word(s: &String) -> &str {
         }
     }
 
-    &s[..]
+    s
 }

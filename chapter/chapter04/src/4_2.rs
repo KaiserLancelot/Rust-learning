@@ -30,7 +30,7 @@ fn main() {
 }
 
 // 使用 & 来表明参数 s 的类型是一个引用
-fn calculate_length(s: &String) -> usize {
+fn calculate_length(s: &str) -> usize {
     s.len()
 }
 
