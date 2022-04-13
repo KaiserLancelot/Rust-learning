@@ -1,4 +1,7 @@
 fn main() {
+    // slice 允许引用集合中一段连续的元素序列
+    // slice 是一类引用, 没有所有权
+
     // 它是一个指向二进制程序特定位置的 slice
     let _s = "Hello World";
 
@@ -7,9 +10,6 @@ fn main() {
     // error: cannot borrow `s` as mutable because it is also borrowed as immutable
     // s.clear();
     println!("{}", word);
-
-    // slice 允许引用集合中一段连续的元素序列
-    // slice 是一类引用, 没有所有权
 
     // 0 可以省略
     let _hello = &s[0..5];
