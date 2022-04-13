@@ -889,17 +889,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "212d0f5754cb6769937f4501cc0e67f4f4483c8d2c3e1e922ee9edbe4ab4c7c0"
 
 [[package]]
-name = "displaydoc"
-version = "0.2.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3bf95dc3f046b9da4f2d51833c0d3547d8564ef6910f5c1ed130306a75b92886"
-dependencies = [
- "proc-macro2",
- "quote",
- "syn",
-]
-
-[[package]]
 name = "dotenv"
 version = "0.15.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1479,24 +1468,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "icu"
-version = "0.1.0"
-dependencies = [
- "icu_locid",
-]
-
-[[package]]
-name = "icu_locid"
-version = "0.5.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "83a3b8515791232b1be02c21467c123216a0e60fd024f4a74cc119ef5b1af79e"
-dependencies = [
- "displaydoc",
- "tinystr 0.4.12",
- "writeable",
-]
-
-[[package]]
 name = "idna"
 version = "0.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1582,7 +1553,7 @@ version = "7.0.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b18f988384267d7066cc2be425e6faf352900652c046b6971d2e228d3b1c5ecf"
 dependencies = [
- "tinystr 0.3.4",
+ "tinystr",
  "unic-langid",
 ]
 
@@ -3499,31 +3470,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "29738eedb4388d9ea620eeab9384884fc3f06f586a2eddb56bedc5885126c7c1"
 
 [[package]]
-name = "tinystr"
-version = "0.4.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "954af207a9e273b644c2c0d29d79d7cba9c22a66e633535d0d0d3712d7e50563"
-dependencies = [
- "tinystr-macros",
- "tinystr-raw",
-]
-
-[[package]]
-name = "tinystr-macros"
-version = "0.2.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5f65be51117c325c2b58eec529be7a0857d11527a9029973b58810a4c63e77a6"
-dependencies = [
- "tinystr-raw",
-]
-
-[[package]]
-name = "tinystr-raw"
-version = "0.1.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10f87ef8b0485e4efff5cac95608adc3251e412fef6039ecd56c5618c8003895"
-
-[[package]]
 name = "tinyvec"
 version = "1.5.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3662,9 +3608,9 @@ dependencies = [
 
 [[package]]
 name = "tracing-core"
-version = "0.1.24"
+version = "0.1.25"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "90442985ee2f57c9e1b548ee72ae842f4a9a20e3f417cc38dbc5dc684d9bb4ee"
+checksum = "6dfce9f3241b150f36e8e54bb561a742d5daa1a47b5dd9a5ce369fd4a4db2210"
 dependencies = [
  "lazy_static",
  "valuable",
@@ -3790,7 +3736,7 @@ version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1a4a8eeaf0494862c1404c95ec2f4c33a2acff5076f64314b465e3ddae1b934d"
 dependencies = [
- "tinystr 0.3.4",
+ "tinystr",
 ]
 
 [[package]]
@@ -4184,12 +4130,6 @@ checksum = "80d0f4e272c85def139476380b12f9ac60926689dd2e01d4923222f40580869d"
 dependencies = [
  "winapi",
 ]
-
-[[package]]
-name = "writeable"
-version = "0.3.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "063dba1bbc4c97dfb9b9e57cf4bcf3bac1ebfd2ef60bc609fc08dcd0228c3de5"
 
 [[package]]
 name = "xattr"
