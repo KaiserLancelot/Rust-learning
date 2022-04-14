@@ -1,6 +1,7 @@
 fn main() {
     // slice 允许引用集合中一段连续的元素序列
     // slice 是一类引用, 没有所有权
+    // 类似 std::string_view
 
     // 它是一个指向二进制程序特定位置的 slice
     let _s = "Hello World";

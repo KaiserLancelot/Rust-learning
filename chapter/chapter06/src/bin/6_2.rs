@@ -12,6 +12,7 @@ enum Coin {
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
+    // match 后表达式值可以是任意类型
     match coin {
         Coin::_Penny => 1,
         Coin::_Nickel => 5,
