@@ -28,6 +28,7 @@ fn main() {
         width: 30,
         height: 50,
     };
+    println!("{}", rect.height);
 
     let _sq = Rectangle::square(3);
 
