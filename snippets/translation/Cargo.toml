@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# TODO fork and make it better
+# TODO fork or PR, make it better
 simplecc = { version = "0.2.2", default-features = false, features = [
     "builtin_dicts",
 ] }

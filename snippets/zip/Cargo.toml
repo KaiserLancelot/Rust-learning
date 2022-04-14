@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# TODO for or PR, use zlib-ng
+# TODO fork or PR, use zlib-ng
 zip = { version = "0.6.2", default-features = false, features = [
     "deflate",
     "time",
