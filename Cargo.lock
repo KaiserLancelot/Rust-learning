@@ -557,6 +557,10 @@ name = "chapter06"
 version = "0.1.0"
 
 [[package]]
+name = "chapter07"
+version = "0.1.0"
+
+[[package]]
 name = "checked_int_cast"
 version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
