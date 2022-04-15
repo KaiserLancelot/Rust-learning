@@ -1,20 +1,9 @@
-mod front_of_house {
-    // 默认都是私有的
-    pub mod hosting {
-        pub fn _add_to_waitlist() {}
+// 在另一个与模块同名的文件中加载模块的内容
+mod front_of_house;
 
-        fn _seat_at_table() {}
-    }
+pub use crate::front_of_house::hosting;
 
-    mod serving {
-        fn _take_order() {}
-
-        fn _serve_order() {}
-
-        fn _take_payment() {}
-    }
-}
-
+// 默认都是私有的
 mod back_of_house {
     pub struct _Breakfast {
         // 默认还是私有的
@@ -38,6 +27,11 @@ mod back_of_house {
     }
 }
 
+// use self::front_of_house;
+// use std::io::{self, Write};
+
+// 所有公有项引入当前作用域, 常用于测试
+// use std::collections::*;
 #[cfg(test)]
 mod tests {
     #[test]
@@ -46,5 +40,13 @@ mod tests {
         // 同一模块, 尽管 front_of_house 是私有的, 也可以访问
         crate::front_of_house::hosting::_add_to_waitlist();
         super::front_of_house::hosting::_add_to_waitlist();
+
+        // 对于函数, 指定到父模块
+        // 对于结构体, 枚举等指定完整路径 (除非冲突)
+        use super::front_of_house::hosting;
+        hosting::_add_to_waitlist();
+
+        // use std::fmt::Result;
+        // use std::io::Result as IoResult;
     }
 }
