@@ -7,6 +7,8 @@ strip = true
 lto = true
 # https://doc.rust-lang.org/cargo/reference/profiles.html#codegen-units
 codegen-units = 1
+# https://doc.rust-lang.org/cargo/reference/profiles.html#panic
+# panic = 'abort'
 
 # https://doc.rust-lang.org/rustc/platform-support.html
 # https://doc.rust-lang.org/reference/linkage.html#static-and-dynamic-c-runtimes
