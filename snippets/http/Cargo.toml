@@ -14,4 +14,4 @@ reqwest = { version = "0.11.10", default-features = false, features = [
     "trust-dns",
 
 ] }
-tokio = { version = "1.17.0", default-features = false, features = ["macros"] }
+tokio = { version = "1.18.0", default-features = false, features = ["macros"] }
