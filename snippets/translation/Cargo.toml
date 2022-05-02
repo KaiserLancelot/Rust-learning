@@ -8,4 +8,4 @@ edition = "2021"
 simplecc = { version = "0.2.2", default-features = false, features = [
     "builtin_dicts",
 ] }
-mimalloc = { version = "0.1.28", default-features = false }
+mimalloc = { version = "0.1.29", default-features = false }
