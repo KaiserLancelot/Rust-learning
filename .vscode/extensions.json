@@ -3,6 +3,6 @@
     "vadimcn.vscode-lldb",
     "serayuzgur.crates",
     "tamasfe.even-better-toml",
-    "matklad.rust-analyzer"
+    "rust-lang.rust-analyzer",
   ]
 }
