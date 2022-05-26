@@ -9,7 +9,7 @@ on:
       - "**.md"
 
 env:
-  RUSTFLAGS: "-D warnings -C target-feature=+aes -C target-cpu=haswell -C instrument-coverage"
+  RUSTFLAGS: "-Dwarnings -Ctarget-feature=+aes -Ctarget-cpu=haswell -Cinstrument-coverage"
 
 jobs:
   build:

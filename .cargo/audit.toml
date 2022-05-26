@@ -1,9 +1,0 @@
-[advisories]
-ignore = [
-    # time: Potential segfault in the time crate
-    # chrono dependency, but vulnerable function is never called
-    "RUSTSEC-2020-0071",
-    # chrono: Potential segfault in localtime_r invocations
-    # avoid setting any environment variables to avoid this issue
-    "RUSTSEC-2020-0159",
-]
