@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-quick-xml = { version = "0.22.0", default-features = false, features = [
+quick-xml = { version = "0.23.0", default-features = false, features = [
     "serialize",
 ] }
 serde = { version = "1.0.137", default-features = false, features = ["derive"] }
