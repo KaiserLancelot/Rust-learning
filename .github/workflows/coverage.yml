@@ -9,11 +9,16 @@ on:
       - "**.md"
 
 env:
-  RUSTFLAGS: "-Dwarnings -Ctarget-feature=+aes -Ctarget-cpu=haswell -Cinstrument-coverage"
+  RUSTFLAGS: "-Dwarnings -Cinstrument-coverage"
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform:
+          - { os: "ubuntu-latest", target: "x86_64-unknown-linux-gnu" }
+
+    runs-on: ${{ matrix.platform.os }}
 
     steps:
       # https://github.com/actions/checkout
@@ -27,19 +32,20 @@ jobs:
           toolchain: stable
           components: llvm-tools-preview
           default: true
+          target: ${{ matrix.platform.target }}
 
       # https://github.com/actions-rs/cargo
       - name: Run cargo test
         uses: actions-rs/cargo@v1
         with:
           command: test
-          args: --workspace --locked --all-targets
+          args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets
 
       # https://github.com/mozilla/grcov#usage
       - name: Generate lcov
         run: |
           curl -fsSL https://github.com/mozilla/grcov/releases/latest/download/grcov-x86_64-unknown-linux-gnu.tar.bz2 | tar jxf -
-          ./grcov . --binary-path ./target/debug/ -s . -t lcov --branch --ignore-not-existing --ignore "/*" -o lcov.info
+          ./grcov . --binary-path ./target/${{ matrix.platform.target }}/debug/ -s . -t lcov --branch --ignore-not-existing --ignore "/*" -o lcov.info
 
       # https://github.com/codecov/codecov-action#usage
       - name: Upload to codecov

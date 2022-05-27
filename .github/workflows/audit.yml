@@ -15,7 +15,12 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform:
+          - { os: "ubuntu-latest", target: "x86_64-unknown-linux-gnu" }
+
+    runs-on: ${{ matrix.platform.os }}
 
     steps:
       # https://github.com/actions/checkout
@@ -28,6 +33,7 @@ jobs:
         with:
           toolchain: stable
           default: true
+          target: ${{ matrix.platform.target }}
 
       # https://github.com/actions-rs/cargo
       # https://github.com/rustsec/rustsec/tree/main/cargo-audit

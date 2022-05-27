@@ -1017,15 +1017,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "float-cmp"
-version = "0.9.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "98de4bbd547a563b716d8dfa9aad1cb19bfab00f4fa09a6a4ed21dbcf44ce9c4"
-dependencies = [
- "num-traits",
-]
-
-[[package]]
 name = "fluent"
 version = "0.1.0"
 dependencies = [
@@ -1298,16 +1289,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "halfbrown"
-version = "0.1.14"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "102968a036b06654b555049d9a6c4f46046805d1e1b22647720e93e0704d4c60"
-dependencies = [
- "hashbrown 0.12.1",
- "serde",
-]
-
-[[package]]
 name = "hash"
 version = "0.1.0"
 dependencies = [
@@ -1324,21 +1305,12 @@ dependencies = [
 ]
 
 [[package]]
-name = "hashbrown"
-version = "0.12.1"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "db0d4cf898abf0081f964436dc980e96670a0f36863e4b83aaacdb65c9d7ccc3"
-dependencies = [
- "ahash",
-]
-
-[[package]]
 name = "hashlink"
 version = "0.7.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7249a3129cbc1ffccd74857f81464a323a152173cdb134e0fd81bc803b29facf"
 dependencies = [
- "hashbrown 0.11.2",
+ "hashbrown",
 ]
 
 [[package]]
@@ -1525,7 +1497,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0f647032dfaa1f8b6dc29bd3edb7bbef4861b8b8007ebb118d6db284fd59f6ee"
 dependencies = [
  "autocfg",
- "hashbrown 0.11.2",
+ "hashbrown",
 ]
 
 [[package]]
@@ -1662,7 +1634,7 @@ version = "0.1.0"
 dependencies = [
  "mimalloc",
  "serde",
- "simd-json",
+ "serde_json",
 ]
 
 [[package]]
@@ -2320,7 +2292,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "292972edad6bbecc137ab84c5e36421a4a6c979ea31d3cc73540dd04315b33e1"
 dependencies = [
  "byteorder",
- "hashbrown 0.11.2",
+ "hashbrown",
  "idna",
  "psl-types",
 ]
@@ -2996,19 +2968,6 @@ version = "0.1.0"
 dependencies = [
  "memchr",
  "simdutf8",
-]
-
-[[package]]
-name = "simd-json"
-version = "0.4.15"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c0c3aaa7729b636ed4843efa96722f0d5823825b4f388d74c83757a3227f64d4"
-dependencies = [
- "halfbrown",
- "serde",
- "serde_json",
- "simdutf8",
- "value-trait",
 ]
 
 [[package]]
@@ -3864,18 +3823,6 @@ name = "valuable"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "830b7e5d4d90034032940e4ace0d9a9a057e7a45cd94e6c007832e39edb82f6d"
-
-[[package]]
-name = "value-trait"
-version = "0.2.12"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0fe40a74a6f052b10668ef021c8c3ae56ab38269f9c0f401daa6ed36f96662fd"
-dependencies = [
- "float-cmp",
- "halfbrown",
- "itoa 0.4.8",
- "ryu",
-]
 
 [[package]]
 name = "vcpkg"

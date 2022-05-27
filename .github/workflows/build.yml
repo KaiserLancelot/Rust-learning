@@ -12,9 +12,12 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        platform:
+          - { os: "ubuntu-latest", target: "x86_64-unknown-linux-gnu" }
+          - { os: "macos-latest", target: "aarch64-apple-darwin" }
+          - { os: "windows-latest", target: "x86_64-pc-windows-msvc" }
 
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.platform.os }}
 
     steps:
       # https://github.com/actions/checkout
@@ -28,17 +31,27 @@ jobs:
           toolchain: stable
           components: clippy
           default: true
+          target: ${{ matrix.platform.target }}
 
       # https://github.com/actions-rs/cargo
       - name: Run cargo clippy
         uses: actions-rs/cargo@v1
         with:
           command: clippy
-          args: --workspace --locked --all-targets -- --deny clippy::all
+          args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets -- --deny clippy::all
+
+      # https://github.com/actions-rs/cargo
+      - name: Run cargo build
+        uses: actions-rs/cargo@v1
+        if: ${{ matrix.platform.os == 'macos-latest' }}
+        with:
+          command: build
+          args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets
 
       # https://github.com/actions-rs/cargo
       - name: Run cargo test
         uses: actions-rs/cargo@v1
+        if: ${{ matrix.platform.os != 'macos-latest' }}
         with:
           command: test
-          args: --workspace --locked --all-targets
+          args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets

@@ -1,6 +1,6 @@
 use mimalloc::MiMalloc;
 use serde::{Deserialize, Serialize};
-use simd_json::Result;
+use serde_json::Result;
 
 #[global_allocator]
 static GLOBAL: MiMalloc = MiMalloc;
@@ -13,7 +13,7 @@ struct Person {
 }
 
 fn main() -> Result<()> {
-    let mut data = br#"
+    let data = br#"
         {
             "name": "John Doe",
             "age": 43,
@@ -24,7 +24,7 @@ fn main() -> Result<()> {
         }"#
     .to_vec();
 
-    let p: Person = simd_json::serde::from_slice(&mut data)?;
+    let p: Person = serde_json::from_slice(&data)?;
 
     println!("Please call {} at the number {}", p.name, p.phones[0]);
 

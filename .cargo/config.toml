@@ -12,13 +12,11 @@ codegen-units = 1
 
 # https://doc.rust-lang.org/rustc/platform-support.html
 # https://doc.rust-lang.org/reference/linkage.html#static-and-dynamic-c-runtimes
-# https://rust-lang.github.io/packed_simd/perf-guide/target-feature/rustflags.html
 [target.x86_64-unknown-linux-gnu]
-rustflags = ["-Dwarnings", "-Ctarget-feature=+aes", "-Ctarget-cpu=haswell"]
+rustflags = ["-Dwarnings"]
+
+[target.aarch64-apple-darwin]
+rustflags = ["-Dwarnings", "-Ctarget-feature=+crt-static"]
 
 [target.x86_64-pc-windows-msvc]
-rustflags = [
-    "-Dwarnings",
-    "-Ctarget-feature=+crt-static,+aes",
-    "-Ctarget-cpu=haswell",
-]
+rustflags = ["-Dwarnings", "-Ctarget-feature=+crt-static"]

@@ -7,7 +7,6 @@ edition = "2021"
 # TODO use it
 libwebp-sys = { version = "0.6.0", default-features = false, features = [
     "parallel",
-    "avx2",
 ] }
 image = { version = "0.24.2", default-features = false, features = [
     "jpeg",
