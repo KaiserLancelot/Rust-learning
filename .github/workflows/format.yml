@@ -1,4 +1,4 @@
-name: Rustfmt
+name: Format
 
 on:
   push:
@@ -37,3 +37,10 @@ jobs:
         with:
           command: fmt
           args: --check --all
+
+      # https://github.com/creyD/prettier_action
+      - name: Run prettier
+        uses: creyD/prettier_action@v4.2
+        with:
+          dry:  True
+          prettier_options: --check
