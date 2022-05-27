@@ -35,12 +35,10 @@ jobs:
       - name: Run cargo fmt
         uses: actions-rs/cargo@v1
         with:
-          command: fmt
+          command:  fmt
           args: --check --all
 
-      # https://github.com/creyD/prettier_action
       - name: Run prettier
-        uses: creyD/prettier_action@v4.2
-        with:
-          dry:  True
-          prettier_options: --check
+        run: |
+          npm install --silent prettier
+          prettier --check .
