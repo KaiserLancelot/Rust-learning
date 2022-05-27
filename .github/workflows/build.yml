@@ -43,7 +43,7 @@ jobs:
       # https://github.com/actions-rs/cargo
       - name: Run cargo build
         uses: actions-rs/cargo@v1
-        if: ${{ matrix.platform.os == 'macos-latest' }}
+        if: ${{ !startsWith(matrix.platform.target, 'x86_64') }}
         with:
           command: build
           args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets
@@ -51,7 +51,7 @@ jobs:
       # https://github.com/actions-rs/cargo
       - name: Run cargo test
         uses: actions-rs/cargo@v1
-        if: ${{ matrix.platform.os != 'macos-latest' }}
+        if: ${{ startsWith(matrix.platform.target, 'x86_64') }}
         with:
           command: test
           args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets
