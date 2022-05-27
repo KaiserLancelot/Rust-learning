@@ -40,5 +40,5 @@ jobs:
 
       - name: Run prettier
         run: |
-          npm install --silent prettier
+          sudo npm install -g --silent prettier
           prettier --check .
