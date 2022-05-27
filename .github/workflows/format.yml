@@ -35,7 +35,7 @@ jobs:
       - name: Run cargo fmt
         uses: actions-rs/cargo@v1
         with:
-          command:  fmt
+          command: fmt
           args: --check --all
 
       - name: Run prettier
