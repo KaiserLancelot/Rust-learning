@@ -15,6 +15,9 @@ codegen-units = 1
 [target.x86_64-unknown-linux-gnu]
 rustflags = ["-Dwarnings"]
 
+[target.x86_64-apple-darwin]
+rustflags = ["-Dwarnings", "-Ctarget-feature=+crt-static"]
+
 [target.aarch64-apple-darwin]
 rustflags = ["-Dwarnings", "-Ctarget-feature=+crt-static"]
 
