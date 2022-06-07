@@ -33,6 +33,7 @@ jobs:
         with:
           toolchain: stable
           default: true
+          override: true
           target: ${{ matrix.platform.target }}
 
       # https://github.com/actions-rs/cargo

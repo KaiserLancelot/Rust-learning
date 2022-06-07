@@ -29,6 +29,7 @@ jobs:
           toolchain: stable
           components: rustfmt
           default: true
+          override: true
           target: ${{ matrix.platform.target }}
 
       # https://github.com/actions-rs/cargo

@@ -32,6 +32,7 @@ jobs:
           toolchain: stable
           components: clippy
           default: true
+          override: true
           target: ${{ matrix.platform.target }}
 
       # https://github.com/actions-rs/cargo
