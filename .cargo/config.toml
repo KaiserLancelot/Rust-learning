@@ -18,5 +18,8 @@ rustflags = ["-Dwarnings", "-Ctarget-feature=+crt-static"]
 [target.aarch64-apple-darwin]
 rustflags = ["-Dwarnings", "-Ctarget-feature=+crt-static"]
 
+[target.x86_64-apple-darwin]
+rustflags = ["-Dwarnings", "-Ctarget-feature=+crt-static"]
+
 [target.x86_64-pc-windows-msvc]
 rustflags = ["-Dwarnings", "-Ctarget-feature=+crt-static"]
