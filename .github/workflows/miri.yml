@@ -29,10 +29,10 @@ jobs:
       - name: Install nightly toolchain
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: nightly
-          components: miri
           default: true
           override: true
+          toolchain: nightly
+          components: miri
           target: ${{ matrix.platform.target }}
 
       # https://github.com/rust-lang/miri

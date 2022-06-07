@@ -26,9 +26,9 @@ jobs:
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
           default: true
           override: true
+          toolchain: stable
           target: ${{ matrix.platform.target }}
 
       # https://github.com/actions-rs/cargo

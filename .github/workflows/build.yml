@@ -29,10 +29,10 @@ jobs:
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
-          toolchain: stable
-          components: clippy
           default: true
           override: true
+          toolchain: stable
+          components: clippy
           target: ${{ matrix.platform.target }}
 
       # https://github.com/actions-rs/cargo
