@@ -32,6 +32,7 @@ jobs:
           default: true
           override: true
           toolchain: stable
+          profile: minimal
           components: llvm-tools-preview
           target: ${{ matrix.platform.target }}
 

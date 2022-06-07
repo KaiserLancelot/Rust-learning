@@ -29,6 +29,7 @@ jobs:
           default: true
           override: true
           toolchain: stable
+          profile: minimal
           components: rustfmt
           target: ${{ matrix.platform.target }}
 

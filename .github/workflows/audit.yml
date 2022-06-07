@@ -34,6 +34,7 @@ jobs:
           default: true
           override: true
           toolchain: stable
+          profile: minimal
           target: ${{ matrix.platform.target }}
 
       # https://github.com/actions-rs/cargo
