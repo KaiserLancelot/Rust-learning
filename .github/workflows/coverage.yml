@@ -9,7 +9,7 @@ on:
       - "**.md"
 
 env:
-  RUSTFLAGS: "-D warnings -C target-feature=+crt-static -C instrument-coverage"
+  RUSTFLAGS: "-D warnings -C instrument-coverage"
 
 jobs:
   build:
