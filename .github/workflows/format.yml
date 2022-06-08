@@ -40,7 +40,9 @@ jobs:
           command: fmt
           args: --check --all
 
+      # https://github.com/creyD/prettier_action
       - name: Run prettier
-        run: |
-          sudo npm install -g --silent prettier
-          prettier --check .
+        uses: creyD/prettier_action@v4.2
+        with:
+          dry: True
+          prettier_options: --check .
