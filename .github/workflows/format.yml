@@ -37,12 +37,8 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
 
-      # https://github.com/actions-rs/cargo
       - name: Run cargo fmt
-        uses: actions-rs/cargo@v1
-        with:
-          command: fmt
-          args: --check --all
+        run: cargo fmt --check --all
 
       # https://github.com/creyD/prettier_action
       - name: Run prettier

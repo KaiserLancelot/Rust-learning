@@ -39,12 +39,7 @@ jobs:
         uses: Swatinem/rust-cache@v1
 
       # https://github.com/est31/cargo-udeps
-      - name: Install cargo-udeps
-        run: cargo install cargo-udeps
-
-      # https://github.com/actions-rs/cargo
-      - name: Run cargo audit
-        uses: actions-rs/cargo@v1
-        with:
-          command: udeps
-          toolchain: nightly
+      - name: Run cargo udeps
+        run: |
+          cargo install cargo-udeps
+          cargo audit udeps

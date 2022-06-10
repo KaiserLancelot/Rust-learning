@@ -40,18 +40,14 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
 
-      # https://github.com/actions-rs/cargo
       - name: Run cargo build
-        uses: actions-rs/cargo@v1
         if: ${{ !startsWith(matrix.platform.target, 'x86_64') }}
-        with:
-          command: build
-          args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets
+        run: |
+          cargo build --target ${{ matrix.platform.target }} \
+          --workspace --locked --all-targets
 
-      # https://github.com/actions-rs/cargo
       - name: Run cargo test
-        uses: actions-rs/cargo@v1
         if: ${{ startsWith(matrix.platform.target, 'x86_64') }}
-        with:
-          command: test
-          args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets
+        run: |
+          cargo test --target ${{ matrix.platform.target }} \
+          --workspace --locked --all-targets

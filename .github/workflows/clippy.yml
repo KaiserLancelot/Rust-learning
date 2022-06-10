@@ -41,9 +41,7 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
 
-      # https://github.com/actions-rs/cargo
       - name: Run cargo clippy
-        uses: actions-rs/cargo@v1
-        with:
-          command: clippy
-          args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets -- --deny clippy::all
+        run: |
+          cargo clippy --target ${{ matrix.platform.target }} \
+          --workspace --locked --all-targets -- --deny clippy::all

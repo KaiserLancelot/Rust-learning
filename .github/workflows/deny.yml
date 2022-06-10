@@ -42,11 +42,7 @@ jobs:
         uses: Swatinem/rust-cache@v1
 
       # https://github.com/EmbarkStudios/cargo-deny
-      - name: Install cargo-deny
-        run: cargo install cargo-deny
-
-      # https://github.com/actions-rs/cargo
-      - name: Run cargo audit
-        uses: actions-rs/cargo@v1
-        with:
-          command: deny check
+      - name: Run cargo deny
+        run: |
+          cargo install cargo-deny
+          cargo deny check
