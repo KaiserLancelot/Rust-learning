@@ -41,7 +41,7 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
         with:
-          key: Miri
+          key: miri
 
       # https://github.com/rust-lang/miri
       - name: Run cargo miri

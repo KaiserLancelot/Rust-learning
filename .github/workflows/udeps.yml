@@ -40,7 +40,7 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
         with:
-          key: Udeps
+          key: udeps
 
       # https://github.com/est31/cargo-udeps
       - name: Run cargo udeps

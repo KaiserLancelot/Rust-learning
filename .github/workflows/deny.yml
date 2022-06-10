@@ -39,7 +39,7 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
         with:
-          key: Deny
+          key: deny
 
       # https://github.com/EmbarkStudios/cargo-deny
       - name: Run cargo deny

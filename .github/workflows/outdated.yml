@@ -36,7 +36,7 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
         with:
-          key: Outdated
+          key: outdated
 
       # https://github.com/kbknapp/cargo-outdated
       - name: Run cargo outdated

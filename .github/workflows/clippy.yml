@@ -41,7 +41,7 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
         with:
-          key: Clippy
+          key: clippy
 
       - name: Run cargo clippy
         run: cargo clippy --target ${{ matrix.platform.target }} --workspace --locked --all-targets -- --deny clippy::all

@@ -40,7 +40,7 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
         with:
-          key: Coverage
+          key: coverage
 
       # https://github.com/actions-rs/cargo
       - name: Run cargo test
