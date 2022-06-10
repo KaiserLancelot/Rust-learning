@@ -2,13 +2,11 @@ name: udeps
 
 on:
   push:
-    paths:
-      - "**/Cargo.toml"
-      - "**/Cargo.lock"
+    paths-ignore:
+      - "**.md"
   pull_request:
-    paths:
-      - "**/Cargo.toml"
-      - "**/Cargo.lock"
+    paths-ignore:
+      - "**.md"
 
 jobs:
   build:

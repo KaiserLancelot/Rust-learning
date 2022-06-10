@@ -44,6 +44,4 @@ jobs:
       # https://github.com/rust-lang/miri
       - name: Run cargo miri
         if: ${{ startsWith(matrix.platform.target, 'x86_64') }}
-        run: |
-          cargo +nightly miri test --target ${{ matrix.platform.target }} \
-          --workspace --locked --all-targets
+        run: cargo +nightly miri test --target ${{ matrix.platform.target }} --workspace --locked --all-targets

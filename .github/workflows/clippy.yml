@@ -42,6 +42,4 @@ jobs:
         uses: Swatinem/rust-cache@v1
 
       - name: Run cargo clippy
-        run: |
-          cargo clippy --target ${{ matrix.platform.target }} \
-          --workspace --locked --all-targets -- --deny clippy::all
+        run: cargo clippy --target ${{ matrix.platform.target }} --workspace --locked --all-targets -- --deny clippy::all
