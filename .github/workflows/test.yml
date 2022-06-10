@@ -39,6 +39,8 @@ jobs:
       # https://github.com/Swatinem/rust-cache
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
+        with:
+          key: Test
 
       - name: Run cargo build
         if: ${{ !startsWith(matrix.platform.target, 'x86_64') }}

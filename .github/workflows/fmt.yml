@@ -1,4 +1,4 @@
-name: Format
+name: Fmt
 
 on:
   push:
@@ -36,6 +36,8 @@ jobs:
       # https://github.com/Swatinem/rust-cache
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
+        with:
+          key: Fmt
 
       - name: Run cargo fmt
         run: cargo fmt --check --all

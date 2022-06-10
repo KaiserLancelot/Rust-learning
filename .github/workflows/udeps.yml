@@ -1,4 +1,4 @@
-name: udeps
+name: Udeps
 
 on:
   push:
@@ -35,9 +35,11 @@ jobs:
       # https://github.com/Swatinem/rust-cache
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
+        with:
+          key: Udeps
 
       # https://github.com/est31/cargo-udeps
       - name: Run cargo udeps
         run: |
           cargo install cargo-udeps
-          cargo audit udeps
+          cargo +nightly udeps
