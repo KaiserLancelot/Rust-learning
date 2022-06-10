@@ -1,4 +1,4 @@
-name: Build
+name: Test
 
 on:
   push:
@@ -34,15 +34,11 @@ jobs:
           override: true
           toolchain: stable
           profile: minimal
-          components: clippy
           target: ${{ matrix.platform.target }}
 
-      # https://github.com/actions-rs/cargo
-      - name: Run cargo clippy
-        uses: actions-rs/cargo@v1
-        with:
-          command: clippy
-          args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets -- --deny clippy::all
+      # https://github.com/Swatinem/rust-cache
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v1
 
       # https://github.com/actions-rs/cargo
       - name: Run cargo build

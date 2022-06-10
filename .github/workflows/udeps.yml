@@ -1,4 +1,4 @@
-name: Audit
+name: udeps
 
 on:
   push:
@@ -9,9 +9,6 @@ on:
     paths:
       - "**/Cargo.toml"
       - "**/Cargo.lock"
-  schedule:
-    # At the end of every day
-    - cron: "0 0 * * *"
 
 jobs:
   build:
@@ -33,13 +30,21 @@ jobs:
         with:
           default: true
           override: true
-          toolchain: stable
+          toolchain: nightly
           profile: minimal
           target: ${{ matrix.platform.target }}
 
+      # https://github.com/Swatinem/rust-cache
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v1
+
+      # https://github.com/est31/cargo-udeps
+      - name: Install cargo-udeps
+        run: cargo install cargo-udeps
+
       # https://github.com/actions-rs/cargo
-      # https://github.com/rustsec/rustsec/tree/main/cargo-audit
       - name: Run cargo audit
         uses: actions-rs/cargo@v1
         with:
-          command: audit
+          command: udeps
+          toolchain: nightly

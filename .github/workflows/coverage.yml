@@ -36,6 +36,10 @@ jobs:
           components: llvm-tools-preview
           target: ${{ matrix.platform.target }}
 
+      # https://github.com/Swatinem/rust-cache
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v1
+
       # https://github.com/actions-rs/cargo
       - name: Run cargo test
         uses: actions-rs/cargo@v1

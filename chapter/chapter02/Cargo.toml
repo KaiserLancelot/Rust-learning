@@ -3,6 +3,7 @@
 name = "chapter02"
 version = "0.1.0"
 edition = "2021"
+license = "MIT OR Apache-2.0"
 
 [dependencies]
 # 是 ^0.8.5 的简写, 它表示任何至少是 0.8.5 但小于 0.9.0 的版本

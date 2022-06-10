@@ -1,12 +1,17 @@
-name: Outdated
+name: Deny
 
 on:
   push:
-    paths-ignore:
-      - "**.md"
+    paths:
+      - "**/Cargo.toml"
+      - "**/Cargo.lock"
   pull_request:
-    paths-ignore:
-      - "**.md"
+    paths:
+      - "**/Cargo.toml"
+      - "**/Cargo.lock"
+  schedule:
+    # At the end of every day
+    - cron: "0 0 * * *"
 
 jobs:
   build:
@@ -36,13 +41,12 @@ jobs:
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
 
-      # https://github.com/kbknapp/cargo-outdated
-      - name: Install cargo-outdated
-        run: cargo install cargo-outdated
+      # https://github.com/EmbarkStudios/cargo-deny
+      - name: Install cargo-deny
+        run: cargo install cargo-deny
 
       # https://github.com/actions-rs/cargo
-      - name: Run cargo outdated
+      - name: Run cargo audit
         uses: actions-rs/cargo@v1
         with:
-          command: outdated
-          args: --workspace --exit-code 1
+          command: deny check

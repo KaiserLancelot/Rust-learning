@@ -1,4 +1,4 @@
-name: Outdated
+name: Clippy
 
 on:
   push:
@@ -14,6 +14,10 @@ jobs:
       matrix:
         platform:
           - { os: "ubuntu-latest", target: "x86_64-unknown-linux-gnu" }
+          - { os: "ubuntu-latest", target: "x86_64-unknown-linux-musl" }
+          - { os: "macos-latest", target: "aarch64-apple-darwin" }
+          - { os: "macos-latest", target: "x86_64-apple-darwin" }
+          - { os: "windows-latest", target: "x86_64-pc-windows-msvc" }
 
     runs-on: ${{ matrix.platform.os }}
 
@@ -30,19 +34,16 @@ jobs:
           override: true
           toolchain: stable
           profile: minimal
+          components: clippy
           target: ${{ matrix.platform.target }}
 
       # https://github.com/Swatinem/rust-cache
       - name: Rust cache
         uses: Swatinem/rust-cache@v1
 
-      # https://github.com/kbknapp/cargo-outdated
-      - name: Install cargo-outdated
-        run: cargo install cargo-outdated
-
       # https://github.com/actions-rs/cargo
-      - name: Run cargo outdated
+      - name: Run cargo clippy
         uses: actions-rs/cargo@v1
         with:
-          command: outdated
-          args: --workspace --exit-code 1
+          command: clippy
+          args: --target ${{ matrix.platform.target }} --workspace --locked --all-targets -- --deny clippy::all

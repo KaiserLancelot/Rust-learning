@@ -37,9 +37,12 @@ jobs:
           components: miri
           target: ${{ matrix.platform.target }}
 
+      # https://github.com/Swatinem/rust-cache
+      - name: Rust cache
+        uses: Swatinem/rust-cache@v1
+
       # https://github.com/rust-lang/miri
       - name: Run cargo miri test
         if: ${{ startsWith(matrix.platform.target, 'x86_64') }}
         run: |
-          cargo +nightly miri setup
           cargo +nightly miri test --target ${{ matrix.platform.target }} --workspace --locked --all-targets
