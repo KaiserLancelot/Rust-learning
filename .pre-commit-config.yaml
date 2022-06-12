@@ -1,5 +1,4 @@
 # https://pre-commit.com/#2-add-a-pre-commit-configuration
-
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
@@ -46,3 +45,7 @@ repos:
     rev: v8.8.7
     hooks:
       - id: gitleaks
+
+# https://pre-commit.ci/#configuration
+ci:
+  skip: [pretty-format-rust, actionlint]
