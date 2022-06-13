@@ -32,10 +32,10 @@ repos:
     hooks:
       - id: shfmt
       - id: shellcheck
-  - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.31.1
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.4.0
     hooks:
-      - id: markdownlint
+      - id: markdownlint-cli2
   - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
     rev: v2.3.0
     hooks:
