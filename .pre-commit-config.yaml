@@ -1,4 +1,7 @@
 # https://pre-commit.com/#2-add-a-pre-commit-configuration
+default_stages: [commit]
+default_install_hook_types: [pre-commit, commit-msg]
+
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.3.0
@@ -45,6 +48,12 @@ repos:
     rev: v8.8.7
     hooks:
       - id: gitleaks
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v2.27.1
+    hooks:
+      # https://github.com/conventional-commits/conventionalcommits.org
+      - id: commitizen
+        stages: [commit-msg]
 
 # https://pre-commit.ci/#configuration
 ci:
