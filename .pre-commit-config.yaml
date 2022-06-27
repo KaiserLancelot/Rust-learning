@@ -41,11 +41,11 @@ repos:
     hooks:
       - id: pretty-format-rust
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.6.13
+    rev: v1.6.14
     hooks:
       - id: actionlint
   - repo: https://github.com/zricethezav/gitleaks
-    rev: v8.8.7
+    rev: v8.8.8
     hooks:
       - id: gitleaks
   - repo: https://github.com/commitizen-tools/commitizen
